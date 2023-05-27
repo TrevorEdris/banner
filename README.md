@@ -31,12 +31,12 @@ Usage:
   banner 'Surround this text' [flags]
 
 Flags:
-      --char string          The characer to surround the text with (=) (default "=")
-      --color string         The color of the banner (none) oneOf [BLUE WHITE BRIGHT_BLACK BRIGHT_RED BRIGHT_GREEN BRIGHT_YELLOW GREEN MAGENTA CYAN BRIGHT_CYAN BLACK BRIGHT_BLUE BRIGHT_MAGENTA YELLOW BRIGHT_WHITE RED]
-      --frame-left string    The left framing character ([) (default "[")
-      --frame-right string   The right framing character (]) (default "[")
+      --char string          The characer to surround the text with (default "=")
+      --color string         The color of the banner (none) oneOf [BRIGHT_CYAN BLACK RED WHITE BRIGHT_YELLOW BRIGHT_BLUE BRIGHT_MAGENTA MAGENTA CYAN BRIGHT_BLACK BRIGHT_RED BRIGHT_GREEN BRIGHT_WHITE GREEN YELLOW BLUE]
+      --frame-left string    The left framing character (default "[")
+      --frame-right string   The right framing character (default "]")
   -h, --help                 help for banner
-      --length int           The total length of the banner (80) (default 80)
+      --length int           The total length of the banner (default 80)
 
 requires at least 1 arg(s), only received 0
 ```
