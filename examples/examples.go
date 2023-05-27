@@ -63,4 +63,9 @@ func main() {
 	bannerWithFrame()
 	bannerWithChar()
 	bannerWithDuplicateOpts()
+
+	for _, color := range banner.AvailableColors() {
+		f, _ := banner.GetColorFunc(color)
+		fmt.Printf("%s - %s\n", banner.New(text, f()), color)
+	}
 }

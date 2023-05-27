@@ -55,6 +55,10 @@ requires at least 1 arg(s), only received 0
 ----------------------------------------~ Surround this text ~----------------------------------------
 ```
 
+The following screenshot is from a zsh terminal in WSL2 on Windows 10.
+
+![banner_examples.png](./resources/banner_examples.PNG)
+
 ## Package Usage
 
 See [examples.go](./examples/examples.go) for usage within a Go project.
