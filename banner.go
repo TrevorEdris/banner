@@ -14,7 +14,7 @@ const (
 	defaultFrameRight = ']'
 )
 
-func Banner(text string, opts ...Option) string {
+func New(text string, opts ...Option) string {
 	length := defaultLength
 	char := defaultChar
 	color := defaultColor

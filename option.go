@@ -1,5 +1,10 @@
 package banner
 
+import (
+	"errors"
+	"strings"
+)
+
 type (
 	Option struct {
 		color      Color
@@ -9,7 +14,8 @@ type (
 		frameRight rune
 	}
 
-	Color string
+	Color     string
+	ColorFunc func() Option
 )
 
 var (
@@ -30,6 +36,28 @@ var (
 	brightCyan    Color = "\u001b[96m"
 	brightWhite   Color = "\u001b[97m"
 	reset         Color = "\u001b[0m"
+
+	colorFuncs = map[string]ColorFunc{
+		"BLACK":          Black,
+		"RED":            Red,
+		"GREEN":          Green,
+		"YELLOW":         Yellow,
+		"BLUE":           Blue,
+		"MAGENTA":        Magenta,
+		"CYAN":           Cyan,
+		"WHITE":          White,
+		"BRIGHT_BLACK":   BrightBlack,
+		"BRIGHT_RED":     BrightRed,
+		"BRIGHT_GREEN":   BrightGreen,
+		"BRIGHT_YELLOW":  BrightYellow,
+		"BRIGHT_BLUE":    BrightBlue,
+		"BRIGHT_MAGENTA": BrightMagenta,
+		"BRIGHT_CYAN":    BrightCyan,
+		"BRIGHT_WHITE":   BrightWhite,
+	}
+	allColors = []string{}
+
+	ErrUnsupportedColor = errors.New("unsupported color")
 )
 
 func WithLength(l int) Option {
@@ -45,6 +73,35 @@ func WithFrame(left, right rune) Option {
 		frameLeft:  left,
 		frameRight: right,
 	}
+}
+
+func GetColorFunc(color string) (ColorFunc, error) {
+	color = strings.ToUpper(color)
+	color = strings.TrimSpace(color)
+	if color == "" {
+		return resetColor, nil
+	}
+
+	if f, exists := colorFuncs[color]; exists {
+		return f, nil
+	}
+
+	return func() Option { return Option{} }, ErrUnsupportedColor
+}
+
+func AvailableColors() []string {
+	// Simple memoization in case this is called multiple times
+	if len(allColors) > 0 {
+		return allColors
+	}
+
+	cs := make([]string, 0)
+	for color := range colorFuncs {
+		cs = append(cs, color)
+	}
+	allColors = cs
+
+	return cs
 }
 
 func Black() Option {
@@ -109,4 +166,8 @@ func BrightCyan() Option {
 
 func BrightWhite() Option {
 	return Option{color: brightWhite}
+}
+
+func resetColor() Option {
+	return Option{}
 }
