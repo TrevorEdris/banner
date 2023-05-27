@@ -46,6 +46,13 @@ requires at least 1 arg(s), only received 0
 ```zsh
 ❯ banner "Surround me" --color green --char '*' --frame-left '{' --frame-right '}' --length 40
 *************{ Surround me }*************
+❯ go run examples/examples.go
+==============================[ Surround this text ]==============================
+==============================[ Surround this text ]==============================
+==================================================[ Surround this text ]==================================================
+==============================( Surround this text )==============================
+******************************[ Surround this text ]******************************
+----------------------------------------~ Surround this text ~----------------------------------------
 ```
 
 ## Package Usage
