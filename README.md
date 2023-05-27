@@ -26,26 +26,25 @@ banner
 ❯ make install
 go install ./cmd/banner
 ❯ banner
-Error: required flag(s) "text" not set
+Error: requires at least 1 arg(s), only received 0
 Usage:
-  banner [flags]
+  banner 'Surround this text' [flags]
 
 Flags:
       --char string          The characer to surround the text with (=) (default "=")
-      --color string         The color of the banner (none) oneOf [WHITE BRIGHT_RED BRIGHT_YELLOW BRIGHT_BLUE BRIGHT_MAGENTA RED GREEN BLUE BRIGHT_GREEN BRIGHT_CYAN BLACK YELLOW BRIGHT_BLACK BRIGHT_WHITE MAGENTA CYAN]
+      --color string         The color of the banner (none) oneOf [BLUE WHITE BRIGHT_BLACK BRIGHT_RED BRIGHT_GREEN BRIGHT_YELLOW GREEN MAGENTA CYAN BRIGHT_CYAN BLACK BRIGHT_BLUE BRIGHT_MAGENTA YELLOW BRIGHT_WHITE RED]
       --frame-left string    The left framing character ([) (default "[")
       --frame-right string   The right framing character (]) (default "[")
   -h, --help                 help for banner
       --length int           The total length of the banner (80) (default 80)
-      --text string          The text to surround
 
-required flag(s) "text" not set
+requires at least 1 arg(s), only received 0
 ```
 
 **Example (zsh)**
 
 ```zsh
-❯ banner --text "Surround me" --color green --char '*' --frame-left '{' --frame-right '}' --length 40
+❯ banner "Surround me" --color green --char '*' --frame-left '{' --frame-right '}' --length 40
 *************{ Surround me }*************
 ```
 

@@ -9,7 +9,6 @@ import (
 )
 
 const (
-	flagText       = "text"
 	flagChar       = "char"
 	flagLength     = "length"
 	flagFrameLeft  = "frame-left"
@@ -19,11 +18,16 @@ const (
 
 func main() {
 	cmd := &cobra.Command{
-		Use:   "banner",
+		Use:   "banner 'Surround this text'",
 		Short: "Generate a banner of text",
+		Args: func(cmd *cobra.Command, args []string) error {
+			if err := cobra.MinimumNArgs(1)(cmd, args); err != nil {
+				return err
+			}
+			return nil
+		},
 		Run: func(cmd *cobra.Command, args []string) {
-			text, err := cmd.Flags().GetString(flagText)
-			printAndExit(err)
+			text := args[0]
 			length, err := cmd.Flags().GetInt(flagLength)
 			printAndExit(err)
 			fchar, err := cmd.Flags().GetString(flagChar)
@@ -53,17 +57,13 @@ func main() {
 			))
 		},
 	}
-	cmd.Flags().String(flagText, "", "The text to surround")
 	cmd.Flags().Int(flagLength, 80, "The total length of the banner (80)")
 	cmd.Flags().String(flagChar, "=", "The characer to surround the text with (=)")
 	cmd.Flags().String(flagFrameLeft, "[", "The left framing character ([)")
 	cmd.Flags().String(flagFrameRight, "[", "The right framing character (])")
 	cmd.Flags().String(flagColor, "", fmt.Sprintf("The color of the banner (none) oneOf %v", banner.AvailableColors()))
 
-	err := cmd.MarkFlagRequired(flagText)
-	printAndExit(err)
-
-	err = cmd.Execute()
+	err := cmd.Execute()
 	printAndExit(err)
 }
 
