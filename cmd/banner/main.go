@@ -60,7 +60,7 @@ func main() {
 	cmd.Flags().Int(flagLength, 80, "The total length of the banner (80)")
 	cmd.Flags().String(flagChar, "=", "The characer to surround the text with (=)")
 	cmd.Flags().String(flagFrameLeft, "[", "The left framing character ([)")
-	cmd.Flags().String(flagFrameRight, "[", "The right framing character (])")
+	cmd.Flags().String(flagFrameRight, "]", "The right framing character (])")
 	cmd.Flags().String(flagColor, "", fmt.Sprintf("The color of the banner (none) oneOf %v", banner.AvailableColors()))
 
 	err := cmd.Execute()
