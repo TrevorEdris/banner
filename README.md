@@ -43,7 +43,9 @@ requires at least 1 arg(s), only received 0
 
 **Example (zsh)**
 
-```zsh
+**Note:** The CLI does not yet support Block Banners.
+
+```
 ❯ banner "Surround me" --color green --char '*' --frame-left '{' --frame-right '}' --length 40
 *************{ Surround me }*************
 ❯ go run examples/examples.go
@@ -53,6 +55,33 @@ requires at least 1 arg(s), only received 0
 ==============================( Surround this text )==============================
 ******************************[ Surround this text ]******************************
 ----------------------------------------~ Surround this text ~----------------------------------------
+. . .
+====================================[ HEADER ]====================================
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit interdum
+Duis condimentum nulla eu fringilla bibendum. Integer eget
+nibh. Phasellus dignissim eleifend felis at eleifend. Aliquam congue
+ligula, in tempus odio dignissim eu. Proin commodo nulla ut dui
+malesuada. Suspendisse nec mauris non lorem condimentum euismod nec
+nisl. Donec sollicitudin ex sit amet orci auctor, a tincidunt turpis feugiat.
+eget justo purus. Suspendisse tincidunt, nunc at lobortis auctor, velit
+fermentum ligula, eu sagittis nisl nulla at mi. Curabitur id tellus
+In finibus mauris a eros interdum placerat.
+==================================================================================
+====================================[ HEADER ]====================================
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit interdum
+Duis condimentum nulla eu fringilla bibendum. Integer eget
+nibh. Phasellus dignissim eleifend felis at eleifend. Aliquam congue
+ligula, in tempus odio dignissim eu. Proin commodo nulla ut dui
+malesuada. Suspendisse nec mauris non lorem condimentum euismod nec
+nisl. Donec sollicitudin ex sit amet orci auctor, a tincidunt turpis feugiat.
+eget justo purus. Suspendisse tincidunt, nunc at lobortis auctor, velit
+fermentum ligula, eu sagittis nisl nulla at mi. Curabitur id tellus
+In finibus mauris a eros interdum placerat.
+====================================[ FOOTER ]====================================
+====================================[ HEADER ]====================================
+Thisisonereallylongwordthatshouldbesplitontomultiplelinesbutidkhowitllworkwitho-
+ver2lengthsoflines
+==================================================================================
 ```
 
 The following screenshot is from a zsh terminal in WSL2 on Windows 10.

@@ -12,6 +12,8 @@ type (
 		char       rune
 		frameLeft  rune
 		frameRight rune
+		noReset    bool
+		noFrame    bool
 	}
 
 	Color     string
@@ -170,4 +172,12 @@ func BrightWhite() Option {
 
 func resetColor() Option {
 	return Option{}
+}
+
+func NoReset() Option {
+	return Option{noReset: true}
+}
+
+func NoFrame() Option {
+	return Option{noFrame: true}
 }

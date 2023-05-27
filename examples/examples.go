@@ -56,6 +56,33 @@ func bannerWithDuplicateOpts() {
 	fmt.Println(b)
 }
 
+func blockBanner() {
+	header := "HEADER"
+	footer := ""
+	block := `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit interdum consectetur. Duis condimentum nulla eu fringilla bibendum. Integer eget elementum nibh. Phasellus dignissim eleifend felis at eleifend. Aliquam congue tortor ligula, in tempus odio dignissim eu. Proin commodo nulla ut dui sollicitudin malesuada. Suspendisse nec mauris non lorem condimentum euismod nec et nisl. Donec sollicitudin ex sit amet orci auctor, a tincidunt turpis feugiat. Aliquam eget justo purus. Suspendisse tincidunt, nunc at lobortis auctor, velit mauris fermentum ligula, eu sagittis nisl nulla at mi. Curabitur id tellus libero. In finibus mauris a eros interdum placerat.`
+
+	b := banner.NewBlock(header, block, footer, banner.Cyan())
+	fmt.Println(b)
+}
+
+func blockBannerWithFooter() {
+	header := "HEADER"
+	footer := "FOOTER"
+	block := `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit interdum consectetur. Duis condimentum nulla eu fringilla bibendum. Integer eget elementum nibh. Phasellus dignissim eleifend felis at eleifend. Aliquam congue tortor ligula, in tempus odio dignissim eu. Proin commodo nulla ut dui sollicitudin malesuada. Suspendisse nec mauris non lorem condimentum euismod nec et nisl. Donec sollicitudin ex sit amet orci auctor, a tincidunt turpis feugiat. Aliquam eget justo purus. Suspendisse tincidunt, nunc at lobortis auctor, velit mauris fermentum ligula, eu sagittis nisl nulla at mi. Curabitur id tellus libero. In finibus mauris a eros interdum placerat.`
+
+	b := banner.NewBlock(header, block, footer, banner.Yellow())
+	fmt.Println(b)
+}
+
+func blockBannerLongWords() {
+	header := "HEADER"
+	footer := ""
+	block := "Thisisonereallylongwordthatshouldbesplitontomultiplelinesbutidkhowitllworkwithover2lengthsoflines"
+
+	b := banner.NewBlock(header, block, footer, banner.Magenta())
+	fmt.Println(b)
+}
+
 func main() {
 	simpleBanner()
 	bannerWithColor()
@@ -68,4 +95,7 @@ func main() {
 		f, _ := banner.GetColorFunc(color)
 		fmt.Printf("%s - %s\n", banner.New(text, f()), color)
 	}
+	blockBanner()
+	blockBannerWithFooter()
+	blockBannerLongWords()
 }
