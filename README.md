@@ -96,3 +96,7 @@ The following screenshot is from a zsh terminal in WSL2 on Windows 10.
 ## Package Usage
 
 See [examples.go](./examples/examples.go) for usage within a Go project.
+
+## Contributing
+
+Refer to the [Contribution Guidelines](./CONTRIBUTING.md) for instructions on how to contribute to this project.
